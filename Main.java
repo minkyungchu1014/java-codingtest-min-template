@@ -2,18 +2,13 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args){
-        int[][] graph = {{0,1,9},{0,2,3},{1,0,5},{2,1,1}};
-        int start = 0, n = 3;
+        int[][] dungeons = {{80,20},{50,40},{30,10}};
+        int k = 80;
 
-        Solution solution = new Solution();
-        int[] result = solution.solution(graph, start, n);
+        Week8Solution1 solution = new Week8Solution1();
+        int result = solution.solution(k, dungeons);
 
-        System.out.print(Arrays.toString(result));
+        System.out.print(result);
 
-//        for (int i = 0; i < result.length; i++) {
-//            if (i > 0) System.out.print(" ");
-//            System.out.print(result[i]);
-//        }
-//        System.out.println();
     }
 }
