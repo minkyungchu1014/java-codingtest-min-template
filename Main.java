@@ -1,18 +1,21 @@
+import java.lang.reflect.Method;
 import java.util.*;
 
 public class Main {
-    public static void main(String[] args){
-//        int[][] dungeons = {{80,20},{50,40},{30,10}};
-//        int k = 80;
-//
-//        Week8Solution1 solution = new Week8Solution1();
-//        int result = solution.solution(k, dungeons);
+    public static void main(String[] args) throws Exception {
+        if(args.length < 1){
+            System.out.println("Please provide the class name to run (e.g., Solution, Week8Solution1, Week8Solution2).");
+            return;
+        }
 
-        int n = 5;
-        int[] info = {2,1,1,1,0,0,0,0,0,0,0};
-        Week8Solution2 solution = new Week8Solution2();
-        int[] result = solution.solution(n, info);
-        System.out.print(Arrays.toString(result));
+        //실행할 클래스 이름
+        String className = args[0];
+        Class<?> cls = Class.forName(className);
+
+        Method mainMethod = cls.getMethod("main", String[].class);
+
+        String[] mainArgs = Arrays.copyOfRange(args, 1, args.length);
+        mainMethod.invoke(null, (Object) mainArgs);
 
     }
 }
